@@ -9,7 +9,7 @@ public class Interactor : MonoBehaviour
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.E)) {
-            Ray ray = new Ray(_interactorSource.position, _interactorSource.forward);
+            Ray ray = new Ray(transform.position, _interactorSource.forward);
             if(Physics.Raycast(ray, out RaycastHit hitInfo, _interactRange)) {
                 if(hitInfo.collider.gameObject.CompareTag("Interactor")) {
                     IInteractable hit = hitInfo.collider.gameObject.GetComponent<IInteractable>();
