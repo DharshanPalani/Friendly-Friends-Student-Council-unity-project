@@ -10,11 +10,15 @@ public class BreakfastTimeEvent : MonoBehaviour, ITimeEvent, IInteractable
 
     public bool breakFastAte = false;
 
+    public int rewardPoint = 10;
+
     public void Interact()
     {
         breakFastAte = true;
         Debug.Log("Breakfast task finished");
         FindObjectOfType<TaskManager>().updateTask();
+
+        FindObjectOfType<StatsManager>().increaseStats(2, rewardPoint);
     }
 
     public void OnTimeReached()

@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakFastAte: 0
+  rewardPoint: 10
 --- !u!1 &383130761
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +981,7 @@ GameObject:
   - component: {fileID: 1436375138}
   - component: {fileID: 1436375139}
   - component: {fileID: 1436375140}
+  - component: {fileID: 1436375141}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1032,6 +1034,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasksCount: 1
   completedTasks: 0
+--- !u!114 &1436375141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436375137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04c3a060149ce1d4787f9d24ee0a3fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intellegent: 0
+  health: 0
 --- !u!1 &1623861035
 GameObject:
   m_ObjectHideFlags: 0
