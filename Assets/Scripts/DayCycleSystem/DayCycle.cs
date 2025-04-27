@@ -5,6 +5,7 @@ using UnityEngine;
 public class DayCycle : MonoBehaviour
 {
     public static DayCycle Instance { get; private set; }
+    public DayCycleUI dayCycleUI;
 
     [Header("Time Settings")]
     public float secondsPerGameMinute = 1f;
@@ -49,6 +50,7 @@ public class DayCycle : MonoBehaviour
 
             Debug.Log($"Game Time: {hour:D2}:{minute:D2}");
             CheckForEvents();
+            dayCycleUI.updateDayCycleUI($"{hour:D2}:{minute:D2}");
         }
     }
 
