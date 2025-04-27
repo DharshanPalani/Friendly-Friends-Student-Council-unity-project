@@ -16,6 +16,10 @@ public class DayCycle : MonoBehaviour
 
     private float _timer = 0f;
 
+    private bool _dayFinished = false;
+
+    public TaskEvent taskEvent = new TaskEvent();
+
     private readonly List<ITimeEvent> _timeEvents = new();
 
     private void Awake()
@@ -48,9 +52,20 @@ public class DayCycle : MonoBehaviour
                 }
             }
 
-            Debug.Log($"Game Time: {hour:D2}:{minute:D2}");
+            // Debug.Log($"Game Time: {hour:D2}:{minute:D2}");
             CheckForEvents();
             dayCycleUI.updateDayCycleUI($"{hour:D2}:{minute:D2}");
+        }
+
+        if (hour >= 12 && minute >= 59 && !_dayFinished)
+        {
+            _dayFinished = true;
+            Debug.Log("Times up!");
+            if(FindObjectOfType<TaskManager>().completedTasks) {
+                taskEvent.TaskFinished();
+            } else {
+                taskEvent.TaskFailed();
+            }
         }
     }
 
