@@ -14,11 +14,14 @@ public class BreakfastTimeEvent : MonoBehaviour, ITimeEvent, IInteractable
     {
         breakFastAte = true;
         Debug.Log("Breakfast task finished");
+        FindObjectOfType<TaskManager>().updateTask();
     }
 
     public void OnTimeReached()
     {
-        if(!breakFastAte) Debug.Log("You failed to finish the breakfast task"); 
+        if(breakFastAte == false){
+            Debug.Log("You failed to finish the breakfast task");     
+        } 
             
     }
 
