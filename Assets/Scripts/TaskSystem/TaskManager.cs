@@ -9,6 +9,9 @@ namespace TaskSystem
 
         private List<ITask> tasks = new();
 
+        private bool allTaskCompleted = false;
+        private bool taskFailed = false;
+
         private void Start()
         {
             foreach (var behaviour in taskBehaviours)
@@ -27,10 +30,14 @@ namespace TaskSystem
             foreach (var task in tasks)
                 task.CheckProgress(time);
 
-            if (tasks.TrueForAll(t => t.IsCompleted))
+            if (!allTaskCompleted && tasks.TrueForAll(t => t.IsCompleted)) {
                 Debug.Log("All tasks complete!");
-            else if (tasks.Exists(t => t.IsFailed))
+                allTaskCompleted = true;
+            }
+            else if (!taskFailed && tasks.Exists(t => t.IsFailed)) {
                 Debug.Log("Some tasks failed.");
+                taskFailed = true;
+            }
         }
     }
 
