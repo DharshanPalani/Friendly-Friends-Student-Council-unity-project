@@ -1,43 +1,37 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskManager : MonoBehaviour
+namespace TaskSystem
 {
-    public int tasksCount;
-
-    private int taskCompleted;
-
-    public bool completedTasks;
-
-    private TaskEvent taskEvent = new TaskEvent();
-
-    void OnEnable()
+    public class TaskManager : MonoBehaviour
     {
-        taskEvent.onTaskFail += taskFailed;
-    }
+        [SerializeField] private List<MonoBehaviour> taskBehaviours = new();
 
-    void OnDisable()
-    {
-        taskEvent.onTaskFail -= taskFailed;
-    }
+        private List<ITask> tasks = new();
 
-    private void Update()
-    {
-        if(tasksCount == taskCompleted && !completedTasks) {
-            completedTasks = true;
-            Debug.Log("Task finished");
+        private void Start()
+        {
+            foreach (var behaviour in taskBehaviours)
+            {
+                if (behaviour is ITask task)
+                    tasks.Add(task);
+                else
+                    Debug.LogWarning($"{behaviour.name} does not implement ITask.");
+            }
+        }
+
+        private void Update()
+        {
+            var time = new GameTime(DayCycle.Instance.hour, DayCycle.Instance.minute);
+
+            foreach (var task in tasks)
+                task.CheckProgress(time);
+
+            if (tasks.TrueForAll(t => t.IsCompleted))
+                Debug.Log("All tasks complete!");
+            else if (tasks.Exists(t => t.IsFailed))
+                Debug.Log("Some tasks failed.");
         }
     }
-
-    public void updateTask() {
-        taskCompleted += 1;
-    }
-
-
-    private void taskFailed() {
-        Debug.Log("Task failed");
-    }
-
 
 }
