@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 72303529}
   - component: {fileID: 72303528}
   - component: {fileID: 72303527}
+  - component: {fileID: 72303531}
   m_Layer: 3
   m_Name: BreakFast
   m_TagString: Untagged
@@ -227,6 +228,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &72303531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72303525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af5291f64997ffa4ba4274da68ae87fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255297697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1319,8 +1332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905d3add584561c43aa80ee3373e45e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksCount: 1
-  completedTasks: 0
+  taskBehaviours:
+  - {fileID: 72303531}
 --- !u!114 &1436375141
 MonoBehaviour:
   m_ObjectHideFlags: 0
