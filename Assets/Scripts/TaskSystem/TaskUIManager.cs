@@ -1,11 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
 
 namespace TaskSystem
 {
     public class TaskUIManager : MonoBehaviour
     {
+
+        private void OnEnable()
+        {
+            TaskEvent.taskUIAction += InitiateTaskNames;            
+        }
+
+        private void OnDisable()
+        {
+            TaskEvent.taskUIAction -= InitiateTaskNames;
+        }
+
         public TextMeshProUGUI tasksList;
         private List<string> currentTaskname = new List<string>();    
 

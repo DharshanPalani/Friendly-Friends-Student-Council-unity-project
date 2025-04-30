@@ -23,17 +23,17 @@ namespace TaskSystem
                     tasks.Add(task);
                 }
                 else
+                {
                     Debug.LogWarning($"{behaviour.name} does not implement ITask.");
+                }
             }
-            
-            TaskUIManager taskUIManager = FindObjectOfType<TaskUIManager>();
 
             foreach (var nameOfTask in tasks)
             {
                 taskNamesToSend.Add(nameOfTask.taskName);
             }
 
-            taskUIManager.InitiateTaskNames(taskNamesToSend);
+            TaskEvent.taskUIAction?.Invoke(taskNamesToSend);
         }
 
         private void Update()
