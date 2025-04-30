@@ -7,6 +7,8 @@ namespace TaskSystem
     {
         [SerializeField] private List<MonoBehaviour> taskBehaviours = new();
 
+        private List<string> taskNamesToSend = new List<string>();   
+
         private List<ITask> tasks = new();
 
         private bool allTaskCompleted = false;
@@ -17,10 +19,21 @@ namespace TaskSystem
             foreach (var behaviour in taskBehaviours)
             {
                 if (behaviour is ITask task)
+                {
                     tasks.Add(task);
+                }
                 else
                     Debug.LogWarning($"{behaviour.name} does not implement ITask.");
             }
+            
+            TaskUIManager taskUIManager = FindObjectOfType<TaskUIManager>();
+
+            foreach (var nameOfTask in tasks)
+            {
+                taskNamesToSend.Add(nameOfTask.taskName);
+            }
+
+            taskUIManager.InitiateTaskNames(taskNamesToSend);
         }
 
         private void Update()

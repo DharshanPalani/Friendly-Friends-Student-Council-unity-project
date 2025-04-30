@@ -9,6 +9,8 @@ public class BreakfastTask : MonoBehaviour, ITask, IInteractable
     public bool IsCompleted => hasEaten;
     public bool IsFailed => failed && !hasEaten;
 
+    public string taskName => this.name;
+
     public void Interact()
     {
         Eat();

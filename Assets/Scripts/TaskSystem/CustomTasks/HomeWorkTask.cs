@@ -12,6 +12,8 @@ public class HomeWorkTask : MonoBehaviour, ITask, IInteractable
 
     public bool IsFailed => failed && !hasFinishedHomeWork;
 
+    public string taskName => this.name;
+
     public void CheckProgress(GameTime time)
     {
         if (!hasFinishedHomeWork && time.Hour >= 12 && !failed)
