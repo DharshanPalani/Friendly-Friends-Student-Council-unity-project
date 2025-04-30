@@ -1334,6 +1334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskBehaviours:
   - {fileID: 72303531}
+  - {fileID: 1623861041}
 --- !u!114 &1436375141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,8 +1361,9 @@ GameObject:
   - component: {fileID: 1623861039}
   - component: {fileID: 1623861038}
   - component: {fileID: 1623861037}
+  - component: {fileID: 1623861041}
   m_Layer: 3
-  m_Name: DestroyOnInteract
+  m_Name: HomeWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1453,6 +1455,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1623861041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623861035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a6ee3ed8fb37643ac4053d79ac2dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1646065008
 GameObject:
   m_ObjectHideFlags: 0

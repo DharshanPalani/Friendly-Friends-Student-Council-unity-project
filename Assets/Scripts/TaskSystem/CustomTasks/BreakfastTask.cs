@@ -1,38 +1,34 @@
+using TaskSystem;
 using UnityEngine;
 
-namespace TaskSystem
+public class BreakfastTask : MonoBehaviour, ITask, IInteractable
 {
-    public class BreakfastTask : MonoBehaviour, ITask, IInteractable
+    private bool hasEaten = false;
+    private bool failed = false;
+
+    public bool IsCompleted => hasEaten;
+    public bool IsFailed => failed && !hasEaten;
+
+    public void Interact()
     {
-        private bool hasEaten = false;
-        private bool failed = false;
+        Eat();
+    }
 
-        public bool IsCompleted => hasEaten;
-        public bool IsFailed => failed && !hasEaten;
-
-        public void Interact()
+    public void CheckProgress(GameTime time)
+    {
+        if (!hasEaten && time.Hour >= 9 && !failed)
         {
-            Eat();
+            failed = true;
+            Debug.Log("You missed breakfast.");
         }
+    }
 
-        public void CheckProgress(GameTime time)
+    private void Eat()
+    {
+        if (failed == false)
         {
-            if (!hasEaten && time.Hour >= 9 && !failed)
-            {
-                failed = true;
-                Debug.Log("You missed breakfast.");
-            }
+            hasEaten = true;
+            Debug.Log("Breakfast eaten on time!");
         }
-
-        private void Eat()
-        {
-            if (failed == false)
-            {
-                hasEaten = true;
-                Debug.Log("Breakfast eaten on time!");
-            }
-        }
-
-
     }
 }
