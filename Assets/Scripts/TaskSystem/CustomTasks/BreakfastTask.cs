@@ -30,7 +30,7 @@ public class BreakfastTask : MonoBehaviour, ITask, IInteractable
 
     private void Eat()
     {
-        if (failed == false)
+        if (!failed && !hasEaten)
         {
             hasEaten = true;
             Debug.Log("Breakfast eaten on time!");

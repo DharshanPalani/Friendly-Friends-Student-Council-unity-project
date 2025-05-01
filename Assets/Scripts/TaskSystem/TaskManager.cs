@@ -7,9 +7,11 @@ namespace TaskSystem
     {
         [SerializeField] private List<MonoBehaviour> taskBehaviours = new();
 
-        // private List<string> taskNamesToSend = new List<string>();   
 
         private List<ITask> tasks = new();
+
+        private List<ITask> finishedTask = new();
+        private List<ITask> failedTask = new();
 
         private bool allTaskCompleted = false;
         private bool taskFailed = false;
@@ -36,7 +38,21 @@ namespace TaskSystem
             var time = new GameTime(DayCycle.Instance.hour, DayCycle.Instance.minute);
 
             foreach (var task in tasks)
+            {
                 task.CheckProgress(time);
+
+                if(task.IsCompleted && !finishedTask.Contains(task))
+                {
+                    finishedTask.Add(task);
+                    Debug.Log(task.taskName + " is completed and verified from task manager");
+                }
+
+                if(task.IsFailed && !failedTask.Contains(task))
+                {
+                    failedTask.Add(task);
+                    Debug.Log(task.taskName + " is failed and verified from task manager");
+                }
+            }
 
             if (!allTaskCompleted && tasks.TrueForAll(t => t.IsCompleted)) {
                 Debug.Log("All tasks complete!");
