@@ -5,6 +5,7 @@ namespace TaskSystem
         string taskName { get; }
         bool IsCompleted { get; }
         bool IsFailed { get; }
+        int rewardPoint { get; }
 
         void CheckProgress(GameTime gameTime);
     }

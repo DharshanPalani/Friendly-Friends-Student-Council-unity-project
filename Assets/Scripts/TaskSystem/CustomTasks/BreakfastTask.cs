@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class BreakfastTask : MonoBehaviour, ITask, IInteractable
 {
+    public string taskName => this.name;
     private bool hasEaten = false;
     private bool failed = false;
+    private int breakfastReward = 5;
 
     public bool IsCompleted => hasEaten;
     public bool IsFailed => failed && !hasEaten;
 
-    public string taskName => this.name;
+
+    public int rewardPoint => breakfastReward;
 
     public void Interact()
     {

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class HomeWorkTask : MonoBehaviour, ITask, IInteractable
 {
+    public string taskName => this.name;
     private bool hasFinishedHomeWork = false;
     private bool failed = false;
 
@@ -12,7 +13,8 @@ public class HomeWorkTask : MonoBehaviour, ITask, IInteractable
 
     public bool IsFailed => failed && !hasFinishedHomeWork;
 
-    public string taskName => this.name;
+    private int homeworkReardPoint = 10;
+    public int rewardPoint => homeworkReardPoint;
 
     public void CheckProgress(GameTime time)
     {

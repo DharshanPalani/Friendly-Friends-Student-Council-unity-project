@@ -7,7 +7,7 @@ namespace TaskSystem
     {
         [SerializeField] private List<MonoBehaviour> taskBehaviours = new();
 
-        private List<string> taskNamesToSend = new List<string>();   
+        // private List<string> taskNamesToSend = new List<string>();   
 
         private List<ITask> tasks = new();
 
@@ -28,12 +28,7 @@ namespace TaskSystem
                 }
             }
 
-            foreach (var nameOfTask in tasks)
-            {
-                taskNamesToSend.Add(nameOfTask.taskName);
-            }
-
-            TaskEvent.taskUIAction?.Invoke(taskNamesToSend);
+            TaskEvent.taskUIAction?.Invoke(tasks);
         }
 
         private void Update()
