@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Threading.Tasks;
 
 namespace TaskSystem
 {
@@ -19,21 +18,17 @@ namespace TaskSystem
         }
 
         public TextMeshProUGUI tasksList;
-        private List<string> currentTaskname = new List<string>();    
+        private List<ITask> currentTaskname = new List<ITask>();    
 
-        public void InitiateTaskNames(List<string> totalTaskNames) {
+        public void InitiateTaskNames(List<ITask> totalTaskNames) {
             currentTaskname = totalTaskNames;
-
-            foreach (var taskName in currentTaskname) {
-                Debug.Log(taskName);
-            }
 
             ShowTaskInUI();
         }
 
         private void ShowTaskInUI() {
-            foreach (var taskName in currentTaskname) {
-                tasksList.text += $"{taskName}\n";
+            foreach (var task in currentTaskname) {
+                tasksList.text += $"{task.taskName}\n";
             }
         }
     }
