@@ -8,4 +8,5 @@ public static class TaskEvent
     public static Action onTaskFail;
 
     public static Action<List<ITask>> taskUIAction;
+    public static Action<ITask> taskVerify;
 }

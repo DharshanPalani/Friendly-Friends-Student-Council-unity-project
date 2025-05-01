@@ -45,6 +45,7 @@ namespace TaskSystem
                 {
                     finishedTask.Add(task);
                     Debug.Log(task.taskName + " is completed and verified from task manager");
+                    TaskEvent.taskVerify?.Invoke(task);
                 }
 
                 if(task.IsFailed && !failedTask.Contains(task))
