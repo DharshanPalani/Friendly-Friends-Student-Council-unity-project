@@ -1515,7 +1515,7 @@ GameObject:
   - component: {fileID: 1623861041}
   m_Layer: 3
   m_Name: HomeWork
-  m_TagString: Untagged
+  m_TagString: ZoomTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1737,6 +1737,7 @@ GameObject:
   - component: {fileID: 1862477598}
   - component: {fileID: 1862477597}
   - component: {fileID: 1862477599}
+  - component: {fileID: 1862477600}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1827,6 +1828,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _showDebugRay: 1
+--- !u!114 &1862477600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862477595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03fe74abda0a4cc44b88d26ce3998e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 963194227}
+  zoomFOV: 30
+  normalFOV: 70
+  zoomSpeed: 10
+  lookRange: 10
 --- !u!1 &1931762491
 GameObject:
   m_ObjectHideFlags: 0
