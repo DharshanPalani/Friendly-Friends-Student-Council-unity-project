@@ -1377,6 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2462bea2e6191c14ba23c090b62862d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: '{"name":"Joe","age":10}'
 --- !u!1 &1488550178
 GameObject:
   m_ObjectHideFlags: 0
