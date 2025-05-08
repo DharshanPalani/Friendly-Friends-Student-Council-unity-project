@@ -7,6 +7,7 @@ public class TestSaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SaveLoadSystem.CreateSave("Rizz sigma");        
+        // SaveLoadSystem.CreateSave("Ts is tuff");
+        Debug.Log(SaveLoadSystem.ReadSave());  
     }
 }
