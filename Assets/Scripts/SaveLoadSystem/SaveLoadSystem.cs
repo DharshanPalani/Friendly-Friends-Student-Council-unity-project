@@ -1,10 +1,11 @@
+using System;
 using System.IO;
 using System.Text;
 
 namespace SaveLoad {
     public class SaveLoadSystem
     {
-        private static string baseDirectory = @"C:\FriendlyFriendsStudentCouncil\";
+        private static string baseDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "FrienddlyFriendsStudentCouncil");
         private static string saveDirectory = Path.Combine(baseDirectory, "saves");
         private static string saveFilePath = Path.Combine(saveDirectory, "save.txt");
 
