@@ -14,8 +14,8 @@ public class TestSaveSystem : MonoBehaviour
     {
 
         TestData testData = new TestData();
-        testData.name = "Joey";
-        testData.age = 69;
+        testData.name = "Rizz";
+        testData.age = 420;
 
         string jsonData = JsonUtility.ToJson(testData);
 
